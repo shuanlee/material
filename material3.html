@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原物料計算</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180vh;
+            flex-direction: column;
+        }
+        .calculator {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 18px;
+            width: 200px;
+            text-align: center;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h1>氨水1</h1>
+        <p>輸入高度</p>
+        <input type="number" id="inputValue" placeholder="輸入數值" step="any" oninput="calculate()">
+        <div class="result" id="result1">液位：-</div>
+        <div class="result" id="result2">重量：-</div>
+    </div>
+
+    <div class="calculator">
+        <h1>氨水2</h1>
+        <p>輸入高度</p>
+        <input type="number" id="inputValue2" placeholder="輸入數值" step="any" oninput="calculate2()">
+        <div class="result" id="result3">液位：-</div>
+        <div class="result" id="result4">重量：-</div>
+    </div>
+
+    <div class="calculator">
+        <h1>柴油</h1>
+        <p>輸入液位</p>
+        <input type="number" id="inputValue3" placeholder="輸入數值" step="any" oninput="calculate3()">
+        <div class="result" id="result6">重量：-</div>
+    </div>
+
+    <div class="calculator">
+        <h1>Naoh</h1>
+        <p>輸入高度</p>
+        <input type="number" id="inputValue4" placeholder="輸入數值" step="any" oninput="calculate4()">
+        <div class="result" id="result7">液位：-</div>
+        <div class="result" id="result8">重量：-</div>
+    </div>
+    <div class="calculator">
+        <h1>Hcl</h1>
+        <p>輸入高度</p>
+        <input type="number" id="inputValue5" placeholder="輸入數值" step="any" oninput="calculate5()">
+        <div class="result" id="result9">液位：-</div>
+        <div class="result" id="result10">重量：-</div>
+    </div>
+
+    <script>
+        function calculate() {
+            // 取得使用者輸入值
+            const userInput = parseFloat(document.getElementById('inputValue').value);
+            
+            // 確認輸入值是否有效
+            if (isNaN(userInput)) {
+                document.getElementById('result1').textContent = "液位：-";
+                document.getElementById('result2').textContent = "重量：-";
+                return;
+            }
+
+            const formula1 = userInput / 5 *100;
+
+            const formula2 = 0.25*3.14159*2.5*2.5*0.92* userInput;
+
+            document.getElementById('result1').textContent = `液位：${formula1.toFixed(1)}`;
+            document.getElementById('result2').textContent = `重量：${formula2.toFixed(2)}`;
+        }
+        function calculate2() {
+           
+            const userInput2 = parseFloat(document.getElementById('inputValue2').value);
+            
+          
+            if (isNaN(userInput2)) {
+                document.getElementById('result3').textContent = "液位：-";
+                document.getElementById('result4').textContent = "重量：-";
+                return;
+            }
+
+            const formula3 = userInput2 / 3.6 *100;
+         
+            const formula4 = 0.25*3.14159*2.5*2.5*0.92* userInput2;
+
+            
+            document.getElementById('result3').textContent = `液位：${formula3.toFixed(1)}`;
+            document.getElementById('result4').textContent = `重量：${formula4.toFixed(2)}`;
+        }
+        function calculate3() {
+         
+            const userInput3 = parseFloat(document.getElementById('inputValue3').value);
+            
+          
+            if (isNaN(userInput3)) {
+                document.getElementById('result6').textContent = "重量：-";
+                return;
+            }
+
+            const formula6 = 0.25*3.14159*3.15*3.15*14*0.84*userInput3/100;
+
+            document.getElementById('result6').textContent = `重量：${formula6.toFixed(2)}`;
+        }
+        function calculate4() {
+        
+            const userInput4 = parseFloat(document.getElementById('inputValue4').value);
+            
+       
+            if (isNaN(userInput4)) {
+                document.getElementById('result7').textContent = "液位：-";
+                document.getElementById('result8').textContent = "重量：-";
+                return;
+            }
+
+            const formula7 = userInput4 / 1.7 *100;
+
+            const formula8 = 0.25*3.14159*1.5*1.5*1.4685* userInput4;
+
+            document.getElementById('result7').textContent = `液位：${formula7.toFixed(1)}`;
+            document.getElementById('result8').textContent = `重量：${formula8.toFixed(2)}`;
+        }
+        function calculate5() {
+
+            const userInput5 = parseFloat(document.getElementById('inputValue5').value);
+            
+            if (isNaN(userInput5)) {
+                document.getElementById('result9').textContent = "液位：-";
+                document.getElementById('result10').textContent = "重量：-";
+                return;
+            }
+
+            const formula9 = userInput5 / 1.7 *100;
+
+            const formula10 =0.25*3.14159*1.5*1.5*1.1593* userInput5;
+
+            document.getElementById('result9').textContent = `液位：${formula9.toFixed(1)}`;
+            document.getElementById('result10').textContent = `重量：${formula10.toFixed(2)}`;
+        }
+    </script>
+
+</body>
+</html>
